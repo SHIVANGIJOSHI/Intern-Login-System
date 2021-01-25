@@ -1,0 +1,17 @@
+<nav class = "navbar navbar-light bg-dark">
+    <div class= "container-fluid">
+        <a class = "navbar-brand" (click) = "change()" routerLink = "/"> Docquity Interns Page
+        </a>
+        <ul class = "nav nav-pills nav-fill justify-content-end">
+            <li class = "nav-item">
+                <a class = "nav-link" (click) = "changeLogin()"
+                [ngClass] = "{'active' : login}" aria-current="page" routerLink = "/login">Login</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" (click) = "changeAdmin()"
+                [ngClass] = "{'active' : admin}" routerLink = "/admin">Admin</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
