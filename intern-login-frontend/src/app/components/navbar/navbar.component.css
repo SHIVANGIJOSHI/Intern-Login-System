@@ -1,0 +1,9 @@
+nav{
+    background-color:cadetblue;
+}
+a{
+    color: black;
+}
+.nav-link.active{
+    background-color: rgb(70, 133, 134);
+}
