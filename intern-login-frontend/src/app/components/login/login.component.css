@@ -1,0 +1,18 @@
+form {
+    padding: 100px;
+}
+#login-form{
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 2px cadetblue;
+}
+.form-control.ng-touched.ng-invalid{
+    border:2px solid #b90e2c ;
+    border-left: 5px ridge  #b90e2c;
+    
+
+}
+.form-control.ng-touched.ng-valid{
+    border:2px solid #36b90e ;
+    border-left: 5px ridge #36b90e ;
+}

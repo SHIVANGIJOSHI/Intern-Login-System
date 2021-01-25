@@ -1,6 +1,6 @@
 <form (ngSubmit) = "onSubmit()">
-    <div class = "container">
-        <div id = "login-form" class = "mb-3">
+    <div class = "container" id = "login-form">
+        <div class = "mb-3">
             <div class = "alert alert-danger" [hidden]=!checkError>
                 {{error}}
             </div>
@@ -12,25 +12,39 @@
             <label for = "userName">Username</label>
             <input
               required
+              pattern = "[a-z0-9._%+-]+@docquity.com"
               [(ngModel)] = "intern.username"
               #userName = "ngModel"
               name = "userName"
               type = "text"
               id = "userName"
+              placeholder="username"
               class = "form-control" 
+              [ngClass] = "{'ng-invalid' : checkError, 'ng-valid' : checkData}"
             >
+            <div class = "alert alert-danger" *ngIf = "userName.touched && !userName.valid">
+                <div *ngIf = "userName.errors && userName.errors.required"> Username is required</div>
+                <div *ngIf = "userName.errors && userName.errors.pattern"> Invalid format for Username it should end with @docquity.com</div>
+            </div> 
         </div>
         <div class = "form-group">
             <label for = "password">Password</label>
             <input
               required
+              pattern = "(?=.*[!@#\$%\^&\*])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}"
               [(ngModel)] = "intern.password"
               #password = "ngModel"
               name = "password"
               type = "password"
               id = "password"
+              placeholder="password"
               class = "form-control" 
+              [ngClass] = "{'ng-invalid' : checkError, 'ng-valid' : checkData}"
             >
+            <div class = "alert alert-danger" *ngIf = "password.touched && !password.valid">
+                <div *ngIf = "password.errors && password.errors.required"> Password is required</div>
+                <div *ngIf = "password.errors && password.errors.pattern"> Invalid format for password it should follow banking norms</div>
+            </div>
         </div>
         <div class = "form-group d-flex justify-content-center">
             <button [disabled] = "!password.valid && !userName.valid" class = "btn btn-primary" id = "log-button">
