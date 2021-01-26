@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { AdminService } from './admin.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,16 +9,17 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
-  public interns:any;
+  constructor(private http: HttpClient,public service: AdminService) { }
+  public interns;
   ngOnInit(): void {
-    this.http.get('http://127.0.0.1:8000/api/login/index').subscribe(
-      data => this.handleData(data)
-    );
+    this.service.getInterns().subscribe(
+    data => this.handleData(data)
+  );
   }
   handleData(data){
     console.log(data);
-    this.interns = data;
-  }
+     this.interns = data;
+     console.log(this.interns);
+    }
 
 }

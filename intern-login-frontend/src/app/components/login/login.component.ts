@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {LoginService} from './login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,13 +16,13 @@ export class LoginComponent implements OnInit {
   public error = null;
   public checkData = false;
   public data = null;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,public service: LoginService) { }
 
   ngOnInit(): void {
   }
   onSubmit(){
     console.log(this.intern);
-    return this.http.post('http://127.0.0.1:8000/api/login/authenticate',this.intern).subscribe(
+    return this.service.postAuthentication(this.intern).subscribe(
       data => this.handleData(data),
       error => this.handleError(error)
     );

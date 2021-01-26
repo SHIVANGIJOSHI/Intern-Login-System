@@ -7,7 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from '@angular/forms';
-
+import{AdminService} from './components/admin/admin.service';
+import{LoginService} from './components/login/login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AdminService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
