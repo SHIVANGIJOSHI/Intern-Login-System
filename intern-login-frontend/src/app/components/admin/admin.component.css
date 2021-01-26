@@ -1,8 +1,17 @@
+.container{
+    padding-top: 50px;
+}
+#table-div{
+    padding-top:15px;
+}
 table, th, td {
-    padding: 15px;
+    padding: 20px;
     width: 200px;
     border: 2px solid black;
 }
-tbody, tr :hover{
-    background-color: antiquewhite;
+thead{
+    background-color: darkgray;
+}
+tr:hover{
+    background-color: rgb(232, 236, 236);
 }

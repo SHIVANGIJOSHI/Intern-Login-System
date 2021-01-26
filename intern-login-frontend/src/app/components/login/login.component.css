@@ -13,6 +13,10 @@ form {
 
 }
 .form-control.ng-touched.ng-valid{
-    border:2px solid #36b90e ;
-    border-left: 5px ridge #36b90e ;
+    border:2px solid #2b960b ;
+    border-left: 5px ridge #2b960b ;
+}
+.btn-primary{
+    background-color: cadetblue;
+    border-color: cadetblue;
 }
