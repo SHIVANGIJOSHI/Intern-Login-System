@@ -11,19 +11,4 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public login = false;
-  public admin = false;
-  changeLogin(){
-    this.admin = false;
-    this.login = true;
-  }
-  changeAdmin(){
-    this.login = false;
-    this.admin = true;
-  }
-  change(){
-    this.admin = false;
-    this.login = false;
-  }
-
 }

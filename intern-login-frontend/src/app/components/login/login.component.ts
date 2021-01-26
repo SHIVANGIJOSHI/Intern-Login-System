@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from './login.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   public error = null;
   public checkData = false;
   public data = null;
-  constructor(private http: HttpClient,public service: LoginService) { }
+  constructor(private http: HttpClient,public service: LoginService,private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,9 @@ export class LoginComponent implements OnInit {
     this.data = data.data;
     this.checkError = false;
     this.checkData = true;
+    this.service.loggedIn = true;
+    this.router.navigate(['/admin']);
+    
   }
   handleError(error){
     console.log(error);
@@ -39,5 +43,4 @@ export class LoginComponent implements OnInit {
     this.checkData = false;
     this.checkError = true;
   }
-
 }
