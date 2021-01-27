@@ -26,7 +26,7 @@ class AuthController extends Controller
         if($token = auth()->attempt($credentials))
             return response()->json(['data' => 'Successfully logged in','token' => $token]);
         else
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(['error' => 'Wrong Credentials'], 401);
     }
     public function index()
     {
