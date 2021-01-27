@@ -15,23 +15,12 @@ use App\Models\User;
 | is assigned the "api" middleware group. Enjoy building your API!
 |//Hash::make('pass');
 */
-
+//basic api's
 Route::get('/login/index','App\Http\Controllers\InternsController@index');
 Route::post('/login/authenticate','App\Http\Controllers\InternsController@authenticate');
-Route::post('/login/token-auth',function(){
-    $credentials = request()->only(['username','password']);
-    $token = auth()->attempt($credentials);
-    return $token;
-});
-Route::get('/login/user-create',function(){
-    User::create([
-        'First_name' => 'Shivangi',
-        'Last_name'  => 'Joshi',
-        'username' => 'sj@docquity.com',
-        'password' => Hash::make('SJoshi@7#')
-    ]);
-    return response()->json(['messg'=>'Success']);
-});
-Route::middleware('auth')->get('/me',function (){
-    return auth()->user();
-});
+
+// api's using jwt
+Route::post('/login','App\Http\Controllers\AuthController@login');
+Route::post('/register','App\Http\Controllers\AuthController@register');
+Route::middleware('auth')->get('/me','App\Http\Controllers\AuthController@me');
+Route::middleware('auth')->get('/index','App\Http\Controllers\AuthController@index');
