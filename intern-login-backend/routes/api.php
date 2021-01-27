@@ -19,7 +19,7 @@ use App\Models\User;
 Route::get('/login/index','App\Http\Controllers\InternsController@index');
 Route::post('/login/authenticate','App\Http\Controllers\InternsController@authenticate');
 
-// api's using jwt
+// api's using jwt and authentication middleware
 Route::post('/login','App\Http\Controllers\AuthController@login');
 Route::post('/register','App\Http\Controllers\AuthController@register');
 Route::middleware('auth')->get('/me','App\Http\Controllers\AuthController@me');
