@@ -24,7 +24,7 @@ class AuthController extends Controller
     public function login(){
         $credentials = request()->only(['username','password']);
         if($token = auth()->attempt($credentials))
-            return $token;
+            return response()->json(['data' => 'Successfully logged in','token' => $token]);
         else
         return response()->json(['error' => 'Unauthorized'], 401);
     }
