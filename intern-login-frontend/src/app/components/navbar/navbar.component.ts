@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(public service: NavbarService,private http : HttpClient,public tokenServe : TokenService,private router : Router) { }
-  public intern = "Intern Dashboard";
+  public intern;
   
   ngOnInit(): void {
     if(this.tokenServe.isValidToken()){
