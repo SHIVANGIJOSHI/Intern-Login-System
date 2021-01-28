@@ -35,9 +35,8 @@ export class LoginComponent implements OnInit {
     this.checkError = false;
     this.checkData = true;
     this.token.handleToken(data.token);
-    this.service.logIn = true;
     setTimeout(()=>{
-      this.router.navigate(['/home']);
+      this.router.navigate(['home']);
     },4000);
     
     

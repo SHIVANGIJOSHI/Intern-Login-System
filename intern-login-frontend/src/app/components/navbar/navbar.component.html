@@ -1,19 +1,23 @@
 <nav class = "navbar navbar-light ">
     <div class= "container-fluid">
-        <a class = "navbar-brand" routerLink = "/"> Docquity Interns Portal
+        <a class = "navbar-brand" > Docquity Interns Portal
         </a> 
         <ul class = "nav nav-pills nav-fill justify-content-end">
             <li class = "nav-item" >
-                <a class = "nav-link" 
+                <a class = "nav-link" [hidden] = "checkLogin()" 
                 routerLinkActive = "active" routerLink = "/login" >Login</a>
             </li>
             <li class = "nav-item" >
-                <a class = "nav-link" 
-                routerLinkActive = "active" routerLink = "/home">{{intern?.username}}</a>
+                <a class = "nav-link" [hidden] = "!checkLogin()" 
+                routerLinkActive = "active" routerLink = "/home">{{intern && intern?.username}}</a>
             </li>
             <li class = "nav-item">
-                <a class = "nav-link" 
+                <a class = "nav-link" [hidden] = "!checkLogin()"
                 routerLinkActive = "active" routerLink = "/admin">Admin</a>
+            </li>
+            <li class = "nav-item" >
+                <a class = "nav-link" [hidden] = "!checkLogin()" (click) = "onLogOut()"
+                routerLinkActive = "active"  href = "/">LogOut</a>
             </li>
         </ul>
 

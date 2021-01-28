@@ -5,12 +5,18 @@
     <div id = "table-div" class = "mb-3">
         <table>
             <thead>
+                <th>Id</th>
                 <th>Username</th>
-                <th>Password</th>
+                <th>First_name</th>
+                <th>Last_name</th>
             </thead>
             <tbody *ngFor = "let intern of interns">
-                <tr><td>{{intern.username}}</td>
-                <td>{{intern.password}}</td></tr>
+                <tr>
+                    <td>{{intern.id}}</td>
+                    <td>{{intern.username}}</td>
+                    <td>{{intern.First_name}}</td>
+                    <td>{{intern.Last_name}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
