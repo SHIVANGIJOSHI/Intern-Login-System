@@ -10,7 +10,7 @@ import {FormsModule} from '@angular/forms';
 import{AdminService} from './components/admin/admin.service';
 import{LoginService} from './components/login/login.service';
 import{AuthGuard} from './auth.guard';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,

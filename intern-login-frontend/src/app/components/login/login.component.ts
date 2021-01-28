@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.checkData = true;
     this.service.loggedIn = true;
     setTimeout(()=>{
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/home']);
     },4000);
     
     
