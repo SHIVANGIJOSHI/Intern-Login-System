@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LoginService} from './login.service';
 import {Router} from '@angular/router';
+import { TokenService } from 'src/app/token.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   public error = null;
   public checkData = false;
   public data = null;
-  constructor(private http: HttpClient,public service: LoginService,private router : Router) { }
+  constructor(private http: HttpClient,public service: LoginService,private router : Router,public token : TokenService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
     this.data = data.data;
     this.checkError = false;
     this.checkData = true;
-    this.service.loggedIn = true;
+    this.token.handleToken(data.token);
+    this.service.logIn = true;
     setTimeout(()=>{
       this.router.navigate(['/home']);
     },4000);

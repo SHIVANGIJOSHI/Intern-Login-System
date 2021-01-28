@@ -6,7 +6,7 @@ import {LoginService} from './components/login/login.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth : LoginService){
+  constructor(public auth : LoginService){
 
   }
   canActivate(

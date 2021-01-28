@@ -7,10 +7,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from '@angular/forms';
+import{NavbarService} from './components/navbar/navbar.service';
 import{AdminService} from './components/admin/admin.service';
 import{LoginService} from './components/login/login.service';
 import{AuthGuard} from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
+import {TokenService} from './token.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,7 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AdminService,LoginService,AuthGuard],
+  providers: [AdminService,LoginService,AuthGuard,NavbarService,TokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
