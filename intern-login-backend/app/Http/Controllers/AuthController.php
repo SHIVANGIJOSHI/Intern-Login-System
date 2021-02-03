@@ -32,12 +32,22 @@ class AuthController extends Controller
         return response()->json(['data' => 'Successfully Registered','token' => $token]);
         }
     }
-    public function login(){
+    public function login(Request $request){
         $credentials = request()->only(['username','password']);
         if($token = auth()->attempt($credentials))
             return response()->json(['data' => 'Successfully logged in','token' => $token]);
-        else
-        return response()->json(['error' => 'Wrong Credentials'], 401);
+        else{
+            $username = $request->username;
+            $count = User::where([
+                ['username','=',$username]
+            ])->count();
+            if($count==0){
+                return response()->json(['error' => 'Username Not registered with us'],401);;
+            }
+            else{
+                return response()->json(['error' => 'Wrong Credentials'], 401);
+            }
+        }
     }
     public function index()
     {
